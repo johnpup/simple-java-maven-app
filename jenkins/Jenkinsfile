@@ -14,7 +14,7 @@ pipeline {
         stage('checkout') {
             steps {
                 
-               checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: 'github', url: 'https://github.com/johnpup/simple-java-maven-app']])
+              git branch: 'master', credentialsId: 'github', url: 'https://github.com/johnpup/simple-java-maven-app'
             }
             
         }
