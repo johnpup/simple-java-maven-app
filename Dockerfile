@@ -5,7 +5,7 @@ workdir /home/ec2-user
 copy /home/ec2-user/workspace/newjob/target/my-app-1.0-SNAPSHOT.jar .
 
 
-Add my-app-1.0-SNAPSHOT.jar/usr/local/tomcat/webapps/
+Add my-app-1.0-SNAPSHOT.jar /usr/local/tomcat/webapps/
 
 
 EXPOSE 8080
