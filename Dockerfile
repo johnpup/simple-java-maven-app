@@ -1,10 +1,10 @@
 FROM tomcat:8.0-alpine
 
-WORKDIR /home/ec2-user
+WORKDIR /home/ec2-user/workspace/newjob/target/
 
-COPY /home/ec2-user/workspace/newjob/target/my-app-1.0-SNAPSHOT.jar .
+copy my-app-1.0-SNAPSHOT.jar .
 
-ADD my-app-1.0-SNAPSHOT.jar /usr/local/tomcat/webapps/
+copy . .
 
 EXPOSE 8080
 
