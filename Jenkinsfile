@@ -42,7 +42,7 @@ pipeline {
             
         }
         
-        stage('build') {
+        stage('image') {
             steps {
                 script {
                     docker.withRegistry('',DOCKER_PASS) {
