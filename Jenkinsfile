@@ -1,5 +1,4 @@
-
-     pipeline {
+pipeline {
     agent { label 'Jenkins-Agent' }
     tools {
         jdk 'Java17'
@@ -69,7 +68,25 @@
                }
             }
         }
+        stage("cleanupartifacts"){
+            steps{
+                script{
+                    sh "docker rmi ${IMAGE_NAME}:${IMAGE_TAG}"
+                    sh "docker rmi ${IMAGE_NAME}:latest"
+                }
+            }
+        }
         
         
     }
 }
+    
+              
+        
+                    
+                    
+                    
+        
+        
+        
+   
