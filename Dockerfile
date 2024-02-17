@@ -1,5 +1,6 @@
 FROM tomcat:latest
 
+workdir /home/ec2-user
 
 COPY --chown=ec2-user:ec2-user target/**.jar /home/ec2-user/*.jar
 
