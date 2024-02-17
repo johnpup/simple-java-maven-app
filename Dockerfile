@@ -1,4 +1,4 @@
 FROM tomcat:latest
 
-copy ./my-app 1.0-SNAPSHOT.jar /
-RUN /my-app 1.0-SNAPSHOT.jar 
+copy /home/ec2-user/workspace/newjob/target/my-app 1.0-SNAPSHOT .
+ RUN echo ${PWD} && ls -lR
