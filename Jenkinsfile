@@ -43,12 +43,12 @@
             
         }
         
-        stage('dockerimage') {
+        stage('build') {
             steps {
                 script {
                     docker.withRegistry('',DOCKER_PASS) {
-                        docker_image = docker.build  "${IMAGE_NAME}"
-                 }
+                        docker_image = docker.build "$(IMAGE_NAME)"
+                    }
                       
                     
                     
@@ -61,6 +61,15 @@
                 }
             }
         }
+        
+        stage("imagescanning"){
+            steps{
+                script {
+	            sh ('docker run -v /var/run/docker.sock:/var/run/docker.sock aquasec/trivy image johnpup/my-app:latest --no-progress --scanners vuln  --exit-code 0 --severity HIGH,CRITICAL --format table')
+               }
+            }
+        }
+        
         
     }
 }
